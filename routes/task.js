@@ -1,5 +1,5 @@
 import express from 'express'
-import { createNewTask, deleteATask, getAllTasks, updateTask } from '../controllers/task.js'
+import { createNewTask, deleteATask, getAllTasks, getSingleTask, updateTask } from '../controllers/task.js'
 import { isAuthenticated } from '../middleware/auth.js'
 
 
@@ -16,5 +16,8 @@ router.put('/update/:id', isAuthenticated, updateTask)
 
 // delete a task
 router.delete('/delete/:id', isAuthenticated, deleteATask)
+
+// get a single task
+router.get('/singletask/:id', isAuthenticated, getSingleTask)
 
 export default router

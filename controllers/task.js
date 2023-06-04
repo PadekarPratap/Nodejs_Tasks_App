@@ -69,3 +69,15 @@ export const deleteATask = catchAsyncError(async (req, res, next) => {
     message: `${task.title} has been deleted successfully!`,
   });
 });
+
+
+// get a single task 
+export const getSingleTask = catchAsyncError(async(req,res,next) =>{
+    const {id} = req.params
+    const task = await Task.findById(id)
+    if(!task) return next(new ErrorHandler("No task found", 404))
+    res.status(200).json({
+      success: true,
+      task,
+    })
+})
