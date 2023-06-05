@@ -13,7 +13,7 @@ export const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: [process.env.HOST_URL],
+    origin: process.env.HOST_URL,
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true
 }))
